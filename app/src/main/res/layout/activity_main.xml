@@ -82,9 +82,18 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <SearchView
+                    <EditText
+                        android:id="@+id/searchName"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/searchNameBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="검색" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/RecyclerNameSearch"
@@ -98,9 +107,18 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <SearchView
+                    <EditText
+                        android:id="@+id/searchMean"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/searchMeanBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="검색" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/RecyclerMeaningSearch"
@@ -108,13 +126,6 @@
                         android:layout_height="match_parent" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tab5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
             </FrameLayout>
         </LinearLayout>
     </TabHost>

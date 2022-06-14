@@ -22,7 +22,7 @@ public class RecaptchaActivity extends AppCompatActivity implements GoogleApiCli
     GoogleApiClient googleApiClient;
 
     //사이트키
-    String SiteKey = "6Le1oWcgAAAAAJ5EOVZKLtgSt4pCmfuOowsjaBui";
+    String SiteKey = "WRITE_YOYR_KEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

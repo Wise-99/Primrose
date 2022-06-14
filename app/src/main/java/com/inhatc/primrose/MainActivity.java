@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null){
-            Intent intent1 = new Intent(this,LoginActivity.class);
+        FirebaseUser currentUser = mAuth.getCurrentUser(); // 현재 로그인 되어있는 사용자 가져오기
+        if(currentUser == null){ // 로그인 되어있는 사용자가 없다면
+            Intent intent1 = new Intent(this,LoginActivity.class); // 로그인 화면으로 이동
             startActivity(intent1);
         }
     }
@@ -75,41 +75,43 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         setContentView(R.layout.activity_main);
 
         recyclerView1 = findViewById(R.id.Recycler_all);
-        recyclerView1.setHasFixedSize(true);
+        recyclerView1.setHasFixedSize(true); // 리사이클러뷰 활성화
         LayoutManager = new LinearLayoutManager(this);
         recyclerView1.setLayoutManager(LayoutManager);
         Database = FirebaseDatabase.getInstance();
-        mDatabase = Database.getReference("Flower");
+        mDatabase = Database.getReference("Flower"); // Flower 밑의 노드로 경로 지정
         ArrayList = new ArrayList<>();
         snameList = new ArrayList<>();
         smeanList = new ArrayList<>();
         allList = new ArrayList<>();
 
+        // 파이어베이스에 저장 되어있는 꽃의 정보 받기
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){ //파이어베이스 실행이되는 순간 캡쳐
-                    Flower flower = dataSnapshot.getValue(Flower.class);
-                    ArrayList.add(flower);
+                    Flower flower = dataSnapshot.getValue(Flower.class); // Flower 객체로 값을 받아온다.
+                    ArrayList.add(flower); // 리스트에 저장
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // 데이터 불러오기 실패 시
             }
         });
 
-        Adapter = new RecyclerAdapter(ArrayList,this);
-        Adapter.setListener(this);
-        recyclerView1.setAdapter(Adapter); //리사이클러 어댑터 클래스랑 연결
+        Adapter = new RecyclerAdapter(ArrayList,this); // 받아온 리스트로 어뎁터에 연결
+        Adapter.setListener(this); // 어뎁터의 리스너 생성
+        recyclerView1.setAdapter(Adapter); // 리사이클러 어댑터 클래스랑 연결
         //리사이클러 어댑터 클래스는 item.xml에 연결해서 텍스트에 자료넣어주는것
 
         //Toolbar 생성
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // 탭 생성
         myTabHost = (TabHost)findViewById(R.id.tabhost);
         myTabHost.setup();
 
@@ -127,9 +129,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
 
         myTabHost.setCurrentTab(0);
 
+        // 로그인 후 첫번째 탭의 이미지 넣어주기(프림로즈 사진)
         image_info = (ImageView) findViewById(R.id.imageView);
         image_info.setImageResource(R.drawable.info_primrose);
-
 
         search_name_btn = findViewById(R.id.searchNameBtn);
 
@@ -144,18 +146,20 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
             @Override
             public void onClick(View view) {
                 EditText search_name = findViewById(R.id.searchName);
-                sname = search_name.getText().toString();
-                mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                sname = search_name.getText().toString(); // 검색한 꽃 이름 받아오기
+
+                // 파이어베이스에서 찾기
+                mDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         for(DataSnapshot dataSnapshot : snapshot.getChildren()){ //파이어베이스 실행이되는 순간 캡쳐
-                            Flower flower = dataSnapshot.getValue(Flower.class);
-                            allList.add(flower);
+                            Flower flower = dataSnapshot.getValue(Flower.class); // Flower 객체로 정보 받아오기
+                            allList.add(flower); // 리스트에 저장
                         }
                         for( Flower f : allList){
-                            if(f.getFname().contains(sname)){
-                                snameList.add(f);
+                            if(f.getFname().contains(sname)){ // 검색한 단어가 포함되는 이름의 꽃이 있다면
+                                snameList.add(f); // 리스트에 저장
                             }
                         }
                     }
@@ -164,13 +168,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
 
                     }
                 });
-                nameAdapter = new RecyclerAdapter(snameList,MainActivity.this);
-                nameAdapter.setListener(MainActivity.this);
-                recyclerName.setAdapter(nameAdapter); //리사이클러 어댑터 클래스랑 연결
+                nameAdapter = new RecyclerAdapter(snameList,MainActivity.this); // snameList와 리사이클러 어뎁터 연결
+                nameAdapter.setListener(MainActivity.this); // 리스너 생성
+                recyclerName.setAdapter(nameAdapter); //리사이클러뷰의 어뎁터 지정
+                nameAdapter.notifyDataSetChanged(); // 리사이클러뷰 내용 변경 알림
 
-                search_name.setText("");
-                imm.hideSoftInputFromWindow(search_name.getWindowToken(),0); // 키보드 내림
-                allList.clear();
+                search_name.setText(""); // 검색 단어 초기화
+                imm.hideSoftInputFromWindow(search_name.getWindowToken(),0); // 키보드 자동 내림
+                allList.clear(); // 리스트 초기화
                 snameList.clear();
             }
         });
@@ -187,18 +192,20 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
             @Override
             public void onClick(View view) {
                 EditText search_mean = findViewById(R.id.searchMean);
-                smean = search_mean.getText().toString();
-                mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                smean = search_mean.getText().toString(); // 입력한 단어 받아오기
+
+                // 파이어베이스에서 검색
+                mDatabase.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                         for(DataSnapshot dataSnapshot : snapshot.getChildren()){ //파이어베이스 실행이되는 순간 캡쳐
-                            Flower flower = dataSnapshot.getValue(Flower.class);
-                                allList.add(flower);
+                            Flower flower = dataSnapshot.getValue(Flower.class); // Flower 객체로 정보 받아오기
+                                allList.add(flower); // 리스트에 저장
                         }
                         for( Flower f : allList){
-                            if(f.getFloriography().contains(smean)){
-                                smeanList.add(f);
+                            if(f.getFloriography().contains(smean)){ // 검색한 단어가 포함되는 꽃말이 있다면
+                                smeanList.add(f); // 리스트에 저장
                             }
                         }
                     }
@@ -207,13 +214,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
 
                     }
                 });
-                meanAdapter = new RecyclerAdapter(smeanList,MainActivity.this);
-                meanAdapter.setListener(MainActivity.this);
-                recyclerMean.setAdapter(meanAdapter); //리사이클러 어댑터 클래스랑 연결
 
-                search_mean.setText("");
-                imm.hideSoftInputFromWindow(search_mean.getWindowToken(),0); // 키보드 내림
-                allList.clear();
+                meanAdapter = new RecyclerAdapter(smeanList,MainActivity.this); // 리스트와 리사이클러 어뎁터 연결
+                meanAdapter.setListener(MainActivity.this); // 리스너 생성
+                recyclerMean.setAdapter(meanAdapter); //리사이클러 어댑터 클래스랑 연결
+                meanAdapter.notifyDataSetChanged(); // 리사이클러뷰 내용 변경 알림
+
+                search_mean.setText("");// 검색 단어 초기화
+                imm.hideSoftInputFromWindow(search_mean.getWindowToken(),0); // 키보드 자동 내림
+                allList.clear(); // 리스트 초기화
                 smeanList.clear();
             }
 

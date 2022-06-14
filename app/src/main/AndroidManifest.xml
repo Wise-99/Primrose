@@ -29,6 +29,9 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".JoinActivity"/>
         <activity android:name=".GoogleMapsActivity"/>
+        <activity android:name=".RecaptchaActivity"/>
+        <activity android:name=".FindEmailActivity"/>
+        <activity android:name=".FindPasswdActivity"/>
     </application>
 
 </manifest>

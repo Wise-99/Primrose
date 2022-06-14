@@ -10,11 +10,14 @@
         <entry key="app/src/main/res/drawable/login_btn_shape.xml" value="0.112" />
         <entry key="app/src/main/res/font/font.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21557971014492755" />
+        <entry key="app/src/main/res/layout/email_find.xml" value="0.25" />
         <entry key="app/src/main/res/layout/flower_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/google_map.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/login.xml" value="0.26902173913043476" />
+        <entry key="app/src/main/res/layout/passwd_find.xml" value="0.26902173913043476" />
+        <entry key="app/src/main/res/layout/recaptcha.xml" value="0.26902173913043476" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.21557971014492755" />
         <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.31614583333333335" />
       </map>

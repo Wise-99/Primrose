@@ -141,7 +141,7 @@ public class GoogleMapsActivity extends AppCompatActivity
 
         new NRPlaces.Builder()
                 .listener(GoogleMapsActivity.this)
-                .key("AIzaSyCrEbQAQaBqtS7RcvINaMozjzQvQLVxi5M")
+                .key("WRITE_YOYR_KEY")
                 .latlng(location.latitude, location.longitude)//현재 위치
                 .radius(1000) //1000 미터 내에서 검색
                 .type(PlaceType.FLORIST) //꽃집

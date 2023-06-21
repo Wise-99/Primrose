@@ -21,8 +21,8 @@
 
 ## 💡 깨달은 점
 
--   Firebase에서 포함되는 단어를 찾고자 할 경우 **contains()**를 이용함
+-   Firebase에서 포함되는 단어를 찾고자 할 경우 **contains**를 이용함
 -   검색 버튼 클릭 후 키보드 제어를 위해 **InputMethodManager**를 사용함
-    -   **hideSoftInputFromWindow()**를 이용하여 키보드를 검색과 동시에 내림
+    -   **hideSoftInputFromWindow**를 이용하여 키보드를 검색과 동시에 내림
 -   **Google Places API와 위치 정보**를 이용하여 여러 장소에 대한 정보를 알려줄 수 있음
     -   Geocoder를 이용해 GPS 정보를 주소로 변환할 수 있음

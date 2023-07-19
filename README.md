@@ -3,7 +3,7 @@
 ## 📖 프로젝트 소개
 | 소개 화면(메인 화면) | 꽃집 위치 검색 화면 | 꽃말 검색 | 꽃말 검색 후 |
 |--|--|--|--|
-| ![image](https://github.com/Wise-99/Primrose/assets/90273263/4e3fb34e-e328-41b3-98f2-6f7278ee2f8b) | ![](https://file.notion.so/f/s/3ca7c773-80ab-4b9e-bf82-9f63964108fd/Untitled.png?id=51dc20e8-7456-480a-94d1-a67279d5edd5&table=block&spaceId=4fee607c-9fab-47df-96d0-8ba12808c88d&expirationTimestamp=1687421864015&signature=lVRgwjqHzAZxhdHn2Bh0pjkQKS9COYjbfBrU0tAHIiU&downloadName=Untitled.png) | ![](https://file.notion.so/f/s/ba7e0319-d91d-4064-a848-a6df31aab4a0/Untitled.png?id=2d58da25-f4ec-428c-8043-9582a8837e48&table=block&spaceId=4fee607c-9fab-47df-96d0-8ba12808c88d&expirationTimestamp=1687421869935&signature=9FDWg9YExXR2sgxpJWeHUEKk_QczZ6lRG8YkvIbXlv8&downloadName=Untitled.png) | ![](https://file.notion.so/f/s/c760e582-74a0-4717-bc10-c6b3ca26d75b/Untitled.png?id=e9187e22-e6c1-41be-b82a-9401b949facc&table=block&spaceId=4fee607c-9fab-47df-96d0-8ba12808c88d&expirationTimestamp=1687421876888&signature=YIJaGgcCldhMC0WOWDaIvq4J8e4bnGDIzJ7XA_qh3jw&downloadName=Untitled.png) |
+| ![프림로즈1](https://github.com/Wise-99/Primrose/assets/90273263/6bb783d9-3525-4c7b-ba3c-d9d53e22d76c) | ![프림로즈2](https://github.com/Wise-99/Primrose/assets/90273263/8056949e-a8aa-4797-92bd-db23f04bb583) | ![프림로즈3](https://github.com/Wise-99/Primrose/assets/90273263/454314ee-8a54-4313-84ae-a8371b3b1111) | ![프림로즈4](https://github.com/Wise-99/Primrose/assets/90273263/2e8ce2ab-b33f-4706-a4e9-a1276b9e229e) |
 
 
 > 💐 꽃을 선물하는 사람들에게 도움을 주기 위해 만든 앱으로 꽃의 이름이나 꽃말을 **검색하여 확인**할 수 있습니다.
